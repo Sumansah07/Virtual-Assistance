@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;  /* Ensure it always takes the full screen */
+    background: linear-gradient(45deg, #5F2C82, #49A09D);
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+    align-items: center;  /* Center elements horizontally */
+    justify-content: center;  /* Center elements vertically */
+    gap: 30px;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    animation: gradientAnimation 5s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, #5F2C82, #49A09D);
+    }
+    50% {
+        background: linear-gradient(45deg, #FF6A95, #FFD03A);
+    }
+    100% {
+        background: linear-gradient(45deg, #5F2C82, #49A09D);
+    }
+}
+
+#logo {
+    width: 25vw;
+    max-width: 300px; /* Prevent it from getting too large */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    object-fit: contain;
+}
+
+#logo:hover {
+    transform: rotate(10deg);
+}
+
+h1 {
+    color: aliceblue;
+    font-family: "Protest Guerrilla", sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-width: 90%; /* Ensure it's responsive on all screen sizes */
+}
+
+#name {
+    color: rgb(212, 43, 122);
+    font-size: 2.5rem;
+}
+
+#va {
+    color: rgb(43, 206, 212);
+    font-size: 2.5rem;
+}
+
+.musical-bar-container {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);  /* Center the musical bar container */
+}
+
+.musical-bar {
+    width: 8px;
+    height: 20px;
+    background: rgb(212, 43, 122);
+    border-radius: 5px;
+    animation: musicalBarAnimation 1s ease-in-out infinite;
+}
+
+.musical-bar:nth-child(odd) {
+    animation-delay: 0s;
+}
+
+.musical-bar:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+@keyframes musicalBarAnimation {
+    0% {
+        height: 20px;
+    }
+    50% {
+        height: 40px;
+    }
+    100% {
+        height: 20px;
+    }
+}
+
+#voice {
+    width: 100px;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#btn {
+    width: 40%;
+    padding: 15px;
+    background: linear-gradient(to right, rgb(21, 145, 207), rgb(201, 41, 116));
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    cursor: pointer;
+    box-shadow: 4px 4px 15px rgba(21, 145, 207, 0.5), 4px 4px 15px rgba(201, 41, 116, 0.5);
+    transition: all 0.4s ease-in-out;
+}
+
+#btn:hover {
+    background: linear-gradient(to right, rgb(201, 41, 116), rgb(21, 145, 207));
+    box-shadow: 4px 4px 20px rgba(21, 145, 207, 0.7), 4px 4px 20px rgba(201, 41, 116, 0.7);
+    letter-spacing: 1.5px;
+    transform: scale(1.05);
+}
+
+#btn img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease-in-out;
+}
+
+#btn:hover img {
+    transform: rotate(30deg);
+}
+
+#content {
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+}
+
+/* Mobile Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+    body {
+        gap: 20px;
+        padding: 10px;
+    }
+
+    #logo {
+        width: 50vw;
+        max-width: 250px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #name, #va {
+        font-size: 1.8rem;
+    }
+
+    .musical-bar-container {
+        bottom: 5px;
+        justify-content: center;
+    }
+
+    .musical-bar {
+        width: 6px;
+    }
+
+    #btn {
+        width: 60%;
+        font-size: 1rem;
+    }
+
+    #content {
+        font-size: 0.9rem;
+    }
+}
+
+/* Very Small Screens (e.g., mobile) */
+@media only screen and (max-width: 480px) {
+    body {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    #logo {
+        width: 70vw;
+        max-width: 200px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #name, #va {
+        font-size: 1.5rem;
+    }
+
+    .musical-bar-container {
+        bottom: 0px; 
+    }
+
+    .musical-bar {
+        width: 4px; 
+    }
+
+    #btn {
+        width: 80%;
+    }
+
+    #content {
+        font-size: 0.8rem;
+    }
+}
